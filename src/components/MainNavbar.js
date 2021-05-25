@@ -1,34 +1,55 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import React,{Component} from 'react'
+import { Link,withRouter, } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
+import { connect } from 'react-redux';
+import { setAuthedUser } from '../actions/authedUser'
 
-export default function MainNavbar (){
-    
+
+ class MainNavbar extends Component{
+  handleLogout=(event)=>{
+    event.preventDefault()
+    const {dispatch}=this.props
+    dispatch(setAuthedUser('loggedOut'))
+    this.props.history.push(`/`)
+  }
+
+   render(){
+     const{authedUser, users}=this.props
+     const userName=users[authedUser]
+     console.log(userName)
     return(
-        <div>
-      <Navbar bg="light" variant="pills">
-        <Navbar.Brand as={Link} to="/">
-          Would you Rather?
-        </Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/">
-            Home
-          </Nav.Link>
-          <Nav.Link as={Link} to="/questions">
-              Questions
-          </Nav.Link>
-          <Nav.Link as={Link} to="/leaderboard">
-            Leaderboard
-          </Nav.Link>
-          <Nav.Link as={Link} to="/add">
-            Add Question
-          </Nav.Link>
-        </Nav>
-        <Nav.Link className="justify-content-end" as={Link} to="/login">
-            Login
+      <div>
+    <Navbar bg="light" variant="pills">
+      <Navbar.Brand as={Link} to="/">
+        Would you Rather?
+      </Navbar.Brand>
+      <Nav className="mr-auto">
+        <Nav.Link as={Link} to="/questions">
+            Questions
         </Nav.Link>
-      </Navbar>
-    </div>
+        <Nav.Link as={Link} to="/leaderboard">
+          Leaderboard
+        </Nav.Link>
+        <Nav.Link as={Link} to="/add">
+          Add Question
+        </Nav.Link>
+      </Nav>
+      <Nav className="justify-content-end">
+        Welcome,{userName}
+      </Nav>
+      <Link variant ='primary' onClick={this.handleLogout}>Log Out </Link>
+    </Navbar>
+  </div>
     )
+   }  
+    
 }
 
+function mapStateToProps({authedUser,users}){
+  return{
+    authedUser,
+    users
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(MainNavbar))
