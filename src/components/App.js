@@ -42,14 +42,12 @@ class App extends Component {
     return (
       <div className='App'>
         <BrowserRouter>
-          
-            <LoadingBar/>
-            {this.props.authedUser=== null?
-            (<Route path='/login'>
-              <Login/>
-            </Route>):
-              <MainNavbar/>}
-              {this.props.loading? (
+        {this.props.loggedOut ?
+            (
+              <Login/>)
+            :
+          (<BrowserRouter>
+            {this.props.loading? (
                 <Button variant="primary" disabled>
                 <Spinner
                   as="span"
@@ -61,11 +59,13 @@ class App extends Component {
                 Loading...
               </Button>
             
-              ):
-              (<div className= 'app-container'>
+              ):(<MainNavbar/>)}
+            
+              
+              <Switch>
             
                 <Route exact path ='/'>
-                <Redirect to="questions" />
+                  <Redirect to="questions" />
                 </Route>
                 <Route path='/questions'>
                   <QuestionsPage/>
@@ -82,11 +82,12 @@ class App extends Component {
                 <Route path="/not-found">
                   <The404 />
                 </Route>
-                <Route path ="/login">
+                {/* <Route path ="/login">
                   <Login/>
-                </Route>
-              </div>)
-              } 
+                </Route> */}
+              </Switch>
+              
+        </BrowserRouter>)}
         </BrowserRouter>
       </div>
     )
@@ -96,9 +97,8 @@ class App extends Component {
 function mapStateToProps ({ authedUser, dispatch}){
   return {
 
-     authedUser: authedUser===null,
-     loading: 
-     dispatch
+    loggedOut: authedUser==='loggedOut',
+    loading: authedUser===null,
   }
 }
 
