@@ -13,18 +13,18 @@ import {Button} from 'react-bootstrap';
 class Login extends Component{
     state ={
         authedUser :' ',
-      
     }
 
     handleUser= (user)=>{
-      const {dispatch}=this.props
-      dispatch(setAuthedUser(user))
-        
+      const authedUser = user.target.value
+      this.setState({authedUser}) 
     }
     handleLogin=(event)=>{
       event.preventDefault();
-      this.props.history.push(`/`)
-
+      const {dispatch}=this.props
+      const {authedUser}= this.state
+      dispatch(setAuthedUser({authedUser}))
+      console.log('authed user will be:', authedUser)
     }
     render(){
       
@@ -70,7 +70,7 @@ class Login extends Component{
                               ))}
                         </Select>
                         <Link to ='/'>
-                          <Button variant="primary">
+                          <Button variant="primary" onClick={this.handleLogin}>
                             Login
                           </Button>
                         </Link>
