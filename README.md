@@ -1,9 +1,7 @@
-# Getting Started with Create React App
-This is the third project ofthe nanodegree FWD scholarship. it is a React-Redux application for the Would you Rather questions game.
-the UI was built using React-bootstrap UI liberary
+# Would you Rather questions App game
+This  app game is the third project for the FWD & UDACITY Advanced Frontend Nanodegree program. the app is made by React-Redux.
 
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+the user interface was done by using react-bootstap https://react-bootstrap.github.io/ library.
 
 
 ## Available Scripts
