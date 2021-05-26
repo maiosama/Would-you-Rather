@@ -32,6 +32,11 @@ body{
 .App-link {
   color: #61dafb;
 }
+.welcome-message{
+  font-style: italic;
+  color: rgb(40, 40, 148);
+}
+
 
 @keyframes App-logo-spin {
   from {
