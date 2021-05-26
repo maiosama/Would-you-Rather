@@ -26,9 +26,7 @@ class AddQuestion extends Component {
         const {dispatch,author}= this.props
         const {optionOneText, optionTwoText} = this.state
         dispatch(handleAddQuestion(optionOneText, optionTwoText, author))
-        this.setState({toHome: true})
-        console.log("add question", event)
-       
+        this.setState({toHome: true})       
     }
  
     
