@@ -22,7 +22,7 @@ class AddQuestion extends Component {
         this.setState({optionTwoText: event.target.value})
     }
     handleSubmit = (event) => {
-        event.preventDafault()
+        event.preventDefault()
         const {dispatch,author}= this.props
         const {optionOneText, optionTwoText} = this.state
         dispatch(handleAddQuestion(optionOneText, optionTwoText, author))
