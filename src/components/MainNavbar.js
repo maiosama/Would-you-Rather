@@ -15,7 +15,7 @@ import { setAuthedUser } from '../actions/authedUser'
 
    render(){
      const{authedUser, users}=this.props
-     const userName=users[authedUser]
+     const userName=users[authedUser.authedUser].name
      console.log(userName)
     return(
       <div>
@@ -34,7 +34,7 @@ import { setAuthedUser } from '../actions/authedUser'
           Add Question
         </Nav.Link>
       </Nav>
-      <Nav className="justify-content-end">
+      <Nav className="justify-content-end welcome-message">
         Welcome,{userName}
       </Nav>
       <Nav.Link variant ='primary' onClick={this.handleLogout}>LogOut </Nav.Link>
