@@ -30,7 +30,7 @@ function answerQuestion({authedUser, qid, answer}){
   }
 }
 
-export function handleAddQuestion ({optionOneText, optionTwoText, author}){
+export function handleAddQuestion (optionOneText, optionTwoText, author){
   return (dispatch)=>{
     dispatch(showLoading())
     return saveQuestion({ optionOneText, optionTwoText, author})
