@@ -15,8 +15,8 @@ class QuestionAnswer extends Component{
         const votesOptionTwo = question.optionTwo.votes.length
         const optionOnePercentage = Math.round((votesOptionOne/allVotes)*100)
         const optionTwoPercentage =Math.round((votesOptionTwo/allVotes)*100)
-        const voteOption1 = question.optionOne.votes.includes(authedUser)
-        const voteOption2 = question.optionTwo.votes.includes(authedUser)
+        const voteOption1 = question.optionOne.votes.includes(authedUser.authedUser)
+        const voteOption2 = question.optionTwo.votes.includes(authedUser.authedUser)
 
         return(
 
