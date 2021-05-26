@@ -50,10 +50,10 @@ QuestionPage.propTypes={
 
 function mapStateToProps ({ questions, authedUser, users}){
     const answeredQuestions = Object.values(questions).filter((question) =>question.optionOne.votes
-    .includes(authedUser.authedUser) || question.optionTwo.votes.includes(authedUser.authedUser))
+    .includes(authedUser) || question.optionTwo.votes.includes(authedUser))
     
     const unAnsweredQuestions = Object.values(questions).filter((question) =>!question.optionOne.votes
-    .includes(authedUser.authedUser) && !question.optionTwo.votes.includes(authedUser.authedUser))
+    .includes(authedUser) && !question.optionTwo.votes.includes(authedUser))
     
 
     console.log("answered list", answeredQuestions)
