@@ -25,7 +25,7 @@ class Question extends Component {
                         <Card.Title> {user.name} </Card.Title>
                         <div> Would you Rather</div>
                         {hasAnswered && (
-                            <QuestionAnswer question={question} authedUser={authedUser.authedUser}/>
+                            <QuestionAnswer question={question} authedUser={authedUser}/>
 
                         )}
                         {!hasAnswered &&(
@@ -43,7 +43,7 @@ function mapStateToProps ({ questions, authedUser,users },{match}){
     const question = questions[id]
     console.log("question is:", question)
     const notFound = question === undefined
-    const hasAnswered = question.optionOne.votes.includes(authedUser.authedUser) || question.optionTwo.votes.includes(authedUser.authedUser)
+    const hasAnswered = question.optionOne.votes.includes(authedUser) || question.optionTwo.votes.includes(authedUser)
 
     return{
         authedUser,
