@@ -50,10 +50,10 @@ QuestionPage.propTypes={
 
 function mapStateToProps ({ questions, authedUser, users}){
     const answeredQuestions = Object.values(questions).filter((question) =>question.optionOne.votes
-    .includes(authedUser) || question.optionTwo.votes.includes(authedUser))
+    .includes(authedUser.authedUser) || question.optionTwo.votes.includes(authedUser.authedUser))
     
     const unAnsweredQuestions = Object.values(questions).filter((question) =>!question.optionOne.votes
-    .includes(authedUser) && !question.optionTwo.votes.includes(authedUser))
+    .includes(authedUser.authedUser) && !question.optionTwo.votes.includes(authedUser.authedUser))
     
 
     console.log("answered list", answeredQuestions)
@@ -69,8 +69,3 @@ export default connect(mapStateToProps)(QuestionPage)
 
 
 
-// Answered Questions {answeredQuestionsList.map((question)=>(<QuestionDetail key={question} question={question}/>))}
-// UnAnswred Questions{unAnsweredQuestionsList.map((question)=>(<QuestionDetail key={question} question = {question}/>))}
-
-// .map((question)=> question.id)
-// .sort((a,b)=> b.timestamp - a.timestamp)
