@@ -10,7 +10,7 @@ class QuestionUnanaswer extends Component{
     }
     handleSubmit= (event)=>{
         event.preventDefault()
-        const {question:{id:qid}, dispatch, authedUser} = this.props
+        const {question, dispatch, authedUser} = this.props
         const{answer}=this.state
         dispatch(handleAnswerQuestion(qid,answer, authedUser))
         console.log("qid: ", qid, "answer:", answer);
