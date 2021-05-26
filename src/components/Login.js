@@ -23,7 +23,7 @@ class Login extends Component{
       event.preventDefault();
       const {dispatch}=this.props
       const {authedUser}= this.state
-      dispatch(setAuthedUser({authedUser}))
+      dispatch(setAuthedUser(authedUser))
       console.log('authed user will be:', authedUser)
     }
     render(){
