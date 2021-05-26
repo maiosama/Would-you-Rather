@@ -15,7 +15,7 @@ import { setAuthedUser } from '../actions/authedUser'
 
    render(){
      const{authedUser, users}=this.props
-     const userName=users[authedUser.authedUser].name
+     const userName=users[authedUser].name
      console.log(userName)
     return(
       <div>
