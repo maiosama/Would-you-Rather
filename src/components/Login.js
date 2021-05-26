@@ -53,10 +53,10 @@ class Login extends Component{
                         >
                           {users &&
                             Object.keys(users)
-                              .map((userId) => ({
-                                avatarURL: users[userId].avatarURL,
-                                id: users[userId].id,
-                                name: users[userId].name,
+                              .map((user) => ({
+                                avatarURL: users[user].avatarURL,
+                                id: users[user].id,
+                                name: users[user].name,
                               }))
                               .map((user) => (
                                 <MenuItem key={user.id} value={user.id}>
