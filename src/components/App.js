@@ -15,10 +15,6 @@ import Leaderboard from './Leaderboard'
 
 class App extends Component {
 
-  // state={
-  //   loading : false,
-  //   authedUser: null
-  // }
 
  componentDidMount(){
     const{dispatch}= this.props
@@ -27,27 +23,9 @@ class App extends Component {
     
   }
   render (){
-    const requireLogin = (to, from, next) => {
-      if (to.meta.auth) {
-        if (this.props.authedUser) {
-          next();
-        }
-        next.redirect('/login');
-      } else {
-        next();
-      }
-    };
-    
-   
     return (
       <div className='App'>
-        <BrowserRouter>
-        {this.props.loggedOut ?
-            (
-              <Login/>)
-            :
-          (<BrowserRouter>
-            {this.props.loading? (
+        {this.props.loading? (
                 <Button variant="primary" disabled>
                 <Spinner
                   as="span"
@@ -58,45 +36,52 @@ class App extends Component {
                 />
                 Loading...
               </Button>
-            
-              ):(<MainNavbar/>)}
-            
-              
-              <Switch>
-            
-                <Route exact path ='/'>
-                  <Redirect to="questions" />
-                </Route>
-                <Route path='/questions'>
-                  <QuestionsPage/>
-                </Route>
-                <Route path ='/add'>
-                  <AddQuestion/>
-                </Route>
-                <Route path ='/leaderboard'>
-                  <Leaderboard/>
-                </Route> 
-                <Route path="/question/:id">
-                  <Question />
-                </Route>
-                <Route path="/not-found">
-                  <The404 />
-                </Route>
-                {/* <Route path ="/login">
-                  <Login/>
-                </Route> */}
-              </Switch>
-              
-        </BrowserRouter>)}
-        </BrowserRouter>
-      </div>
-    )
-  }
-  
-}
-function mapStateToProps ({ authedUser, dispatch}){
-  return {
+              ):( 
+                <div>
+                  {this.props.loggedOut ? 
+                  (<Login/>) :
+                    
+                  (<BrowserRouter>
+                    <MainNavbar/>
+                      <Switch>
+                        <Route exact path ='/'>
+                          <Redirect to="questions" />
+                        </Route>
+                        <Route path='/questions'>
+                          <QuestionsPage/>
+                        </Route>
+                        <Route path ='/add'>
+                          <AddQuestion/>
+                        </Route>
+                        <Route path ='/leaderboard'>
+                          <Leaderboard/>
+                        </Route> 
+                        <Route path="/question/:id">
+                          <Question />
+                        </Route>
+                        <Route path="/not-found">
+                          <The404 />
+                        </Route>
+                        {/* <Route path ="/login">
+                          <Login/>
+                        </Route> */}
+                      </Switch>
+                      
+                </BrowserRouter>)}
+                </div>
+              )}
 
+      </div>
+    
+    )
+
+  }
+
+
+}
+
+function mapStateToProps ({ authedUser}){
+  return {
     loggedOut: authedUser==='loggedOut',
     loading: authedUser===null,
   }
