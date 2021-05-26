@@ -37,7 +37,7 @@ import { setAuthedUser } from '../actions/authedUser'
       <Nav className="justify-content-end">
         Welcome,{userName}
       </Nav>
-      <Nav.Link variant ='primary' onClick={this.handleLogout}>Log Out </Nav.Link>
+      <Nav.Link variant ='primary' onClick={this.handleLogout}>LogOut </Nav.Link>
     </Navbar>
   </div>
     )
