@@ -6,28 +6,7 @@ import QuestionUnanaswer from './QuestionUnanswer'
 import {Card} from 'react-bootstrap'
 
 class Question extends Component {
-    // state={
-    //     answer:''
-    // }
 
-    // handleSubmit= (event)=>{
-    //     event.preventDefault()
-    //     const {question:{id:qid}, dispatch, authedUser} = this.props
-    //     const{answer}=this.state
-    //     dispatch(handleAnswerQuestion(qid, authedUser,answer))
-    // }
-
-    // handleChange = (event)=>{
-    //     event.preventDefault();
-    //     const {answer}= this.state
-    //     this.setState(event.target.value)
-
-    // }
-
-    // votePercentage = (votes, allVotes)=>{
-    //     return Math.round((votes/allVotes)*100)
-    // }
-    
     render(){
         const { users, hasAnswered, authedUser, questions, question } = this.props;
         const {optionOne, optionTwo} = question
@@ -46,7 +25,7 @@ class Question extends Component {
                         <Card.Title> {user.name} </Card.Title>
                         <div> Would you Rather</div>
                         {hasAnswered && (
-                            <QuestionAnswer question={question} authedUser={authedUser}/>
+                            <QuestionAnswer question={question} authedUser={authedUser.authedUser}/>
 
                         )}
                         {!hasAnswered &&(
@@ -64,7 +43,7 @@ function mapStateToProps ({ questions, authedUser,users },{match}){
     const question = questions[id]
     console.log("question is:", question)
     const notFound = question === undefined
-    const hasAnswered = question.optionOne.votes.includes(authedUser) || question.optionTwo.votes.includes(authedUser)
+    const hasAnswered = question.optionOne.votes.includes(authedUser.authedUser) || question.optionTwo.votes.includes(authedUser.authedUser)
 
     return{
         authedUser,
