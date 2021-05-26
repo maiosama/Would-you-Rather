@@ -4,9 +4,6 @@ import{Card, Button, Badge, ProgressBar,ListGroup} from 'react-bootstrap'
 
 
 class QuestionAnswer extends Component{
-    // votePercentage = (votes, allVotes)=>{
-    //     return Math.round((votes/allVotes)*100)
-    // }
 
     render(){
         const {question, authedUser}=this.props
