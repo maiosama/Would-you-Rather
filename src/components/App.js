@@ -14,15 +14,12 @@ import QuestionsPage from './QuestionsPage'
 import Leaderboard from './Leaderboard'
 
 class App extends Component {
-      // state={
-    //   loading : false,
-    //   authedUser: null
-    // }
+      
 
   componentDidMount(){
     const{dispatch}= this.props
     dispatch(handleInitialData());
-    // this.setState({loading: true})
+  
     
   }
   render (){    
@@ -66,9 +63,7 @@ class App extends Component {
                         <Route path="/not-found">
                           <The404 />
                         </Route>
-                        {/* <Route path ="/login">
-                          <Login/>
-                        </Route> */}
+                        
                       </Switch>
                       
                 </BrowserRouter>)}
