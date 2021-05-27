@@ -30,7 +30,7 @@ class QuestionUnanaswer extends Component{
 
         return(
             <Form onSubmit={this.handleSubmit}>
-                <Form.Check type="radio" id="optionOne" name="option" value='optionOne'  onChange={this.handleChange} defaultChecked
+                <Form.Check type="radio" id="optionOne" name="option" value='optionOne'  onChange={this.handleChange}
                 label ={question.optionOne.text} />
                 <Form.Check type="radio" id="optionTwo" name="option" value='optionTwo' onChange={this.handleChange} 
                 label={question.optionTwo.text} />
