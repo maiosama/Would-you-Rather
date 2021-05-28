@@ -45,8 +45,8 @@ class App extends Component {
                   (<BrowserRouter>
                     <MainNavbar/>
                       <Switch>
-                        <Route exact path ='/questions/unanswered'>
-                          <Redirect to="questions" />
+                        <Route exact path ='/'>
+                          <Redirect to="questions/unanswered" />
                         </Route>
                         <Route path='/questions/unanswered'>
                           <QuestionsPage/>
