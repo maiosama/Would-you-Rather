@@ -45,10 +45,10 @@ class App extends Component {
                   (<BrowserRouter>
                     <MainNavbar/>
                       <Switch>
-                        <Route exact path ='/'>
+                        <Route exact path ='/questions/unanswered'>
                           <Redirect to="questions" />
                         </Route>
-                        <Route path='/questions'>
+                        <Route path='/questions/unanswered'>
                           <QuestionsPage/>
                         </Route>
                         <Route path ='/add'>
