@@ -48,7 +48,7 @@ class App extends Component {
                         <Route exact path ='/'>
                           <Redirect to="questions/unanswered" />
                         </Route>
-                        <Route path='/questions/unanswered'>
+                        <Route path='/questions'>
                           <QuestionsPage/>
                         </Route>
                         <Route path ='/add'>
