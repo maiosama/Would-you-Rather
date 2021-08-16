@@ -1,13 +1,12 @@
 import React, {Component} from 'react'
 import { connect } from "react-redux";
-import { withRouter,Link } from "react-router-dom";
 import { setAuthedUser } from '../actions/authedUser'
 import giphy from '../giphy.gif'
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import {Form, Button} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 
 
 class Login extends Component{
