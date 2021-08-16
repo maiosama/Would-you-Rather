@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Link, withRouter, Redirect} from 'react-router-dom'
+import { withRouter, Redirect} from 'react-router-dom'
 import QuestionAnswer from './QuestionAnswer'
 import QuestionUnanaswer from './QuestionUnanswer'
 import {Card} from 'react-bootstrap'
@@ -19,9 +19,9 @@ class Question extends Component {
             <Card style={{ width: '22rem',padding:10, margin: 15 }} to ={`/question/${this.props.id}`} className ='question'>
                 <Card.Img
                     src = {user.avatarURL}
-                    className="img-card"
+                    className="img-card avatar"
                     alt = {`Avatar of ${user.name}`}
-                    className = 'avatar'
+      
                 />
                 <Card.Body className = 'question-info'>
                     <div>
