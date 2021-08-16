@@ -1,7 +1,6 @@
 import '../App.css';
 import React, {Component} from 'react'
 import {BrowserRouter , Route, Redirect, Switch} from 'react-router-dom'
-import LoadingBar from "react-redux-loading";
 import { Button, Spinner } from "react-bootstrap";
 import {connect} from 'react-redux'
 import {handleInitialData} from '../actions/shared'
